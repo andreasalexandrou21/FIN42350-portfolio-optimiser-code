@@ -1,0 +1,36 @@
+series_id,asset,asset_class,sector,region,weight
+P01,NVIDIA,equity,Information Technology,US,0.026666666666667
+P02,Apple,equity,Information Technology,US,0.026666666666667
+P03,ASML Holding,equity,Information Technology,Europe,0.026666666666667
+P04,SAP,equity,Information Technology,Europe,0.026666666666667
+P05,TSMC,equity,Information Technology,Asia,0.026666666666667
+P06,Samsung Electronics,equity,Information Technology,Asia,0.026666666666667
+P07,Eli Lilly,equity,Health Care,US,0.026666666666667
+P08,Johnson & Johnson,equity,Health Care,US,0.026666666666667
+P09,EssilorLuxottica,equity,Health Care,Europe,0.026666666666667
+P10,argenx,equity,Health Care,Europe,0.026666666666667
+P11,WuXi AppTec,equity,Health Care,Asia,0.026666666666667
+P12,Hoya,equity,Health Care,Asia,0.026666666666667
+P13,Amazon,equity,Consumer Discretionary,US,0.026666666666667
+P14,Tesla,equity,Consumer Discretionary,US,0.026666666666667
+P15,LVMH,equity,Consumer Discretionary,Europe,0.026666666666667
+P16,Inditex,equity,Consumer Discretionary,Europe,0.026666666666667
+P17,Alibaba Group,equity,Consumer Discretionary,Asia,0.026666666666667
+P18,Toyota Motor,equity,Consumer Discretionary,Asia,0.026666666666667
+P19,ExxonMobil,equity,Energy,US,0.026666666666667
+P20,Chevron,equity,Energy,US,0.026666666666667
+P21,ORLEN,equity,Energy,Europe,0.026666666666667
+P22,Neste,equity,Energy,Europe,0.026666666666667
+P23,China Shenhua Energy,equity,Energy,Asia,0.026666666666667
+P24,CNOOC,equity,Energy,Asia,0.026666666666667
+P25,Berkshire Hathaway (Class B),equity,Financials,US,0.026666666666667
+P26,JPMorgan Chase,equity,Financials,US,0.026666666666667
+P27,Allianz,equity,Financials,Europe,0.026666666666667
+P28,UBS Group,equity,Financials,Europe,0.026666666666667
+P29,China Construction Bank,equity,Financials,Asia,0.026666666666667
+P30,China Life Insurance,equity,Financials,Asia,0.026666666666667
+N01,"iShares eb.rexx Government Germany UCITS ETF (DE), distributing",bond,,,0.043333333333333
+N03,iShares Core EUR Corp Bond UCITS ETF EUR (Dist),bond,,,0.043333333333333
+N05,iShares $ Treasury Bond 7-10yr UCITS ETF EUR Hedged (Dist),bond,,,0.043333333333333
+N07,Xtrackers II EUR Overnight Rate Swap UCITS ETF 1C,cash,,,0.040000000000000
+N09,Xetra-Gold (bearer notes),gold,,,0.030000000000000

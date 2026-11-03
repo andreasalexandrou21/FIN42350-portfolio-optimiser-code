@@ -1,0 +1,62 @@
+# FIN42350 portfolio optimiser: parameters.
+#
+# Fill in every blank value AND its source (where the number comes from, or who in the group
+# decided it and when). The pipeline stops and names the first blank field until all are filled.
+# Rates are decimals per year (0.01 = 1% p.a.).
+
+[market_risk_premium]
+# E[r_M] - rf in the CAPM, decimal per year.
+value = 0.0505
+source = "J.P. Morgan Asset Management, 2026 Long-Term Capital Market Assumptions, Assumption matrix: Euro (all estimates in euro terms, 10-15 year horizon, as of 30 Sep 2025), https://am.jpmorgan.com/content/dam/jpm-am-aem/global/en/insights/ltcma-2026-us-matrix_eur.pdf, retrieved 1 Oct 2026: AC World Equity (unhedged) arithmetic return 7.35% minus Euro Cash 2.30% = 5.05% (arithmetic, as CAPM needs for a one-year expected return). Cross-checks: same matrix compound returns 6.40% - 2.30% = 4.10%; Fernandez et al. (2025) survey, Germany MRP 5.4%. Group decision, 1 Oct 2026. Update when the 2027 edition is published"
+
+[gold_method]
+# "capm" (rf + beta x market risk premium) or "historical" (mean EUR return, annualised).
+value = "capm"
+source = "Group decision, 26 Sep 2026: CAPM, same method as the equities"
+
+[hedge_r_eur]
+# EUR short rate in the CIP hedge adjustment for N05: y_hedged = y_USD + (r_EUR - r_USD).
+value = 0.02189
+source = "EUR STR 2.189% p.a. (ACT/360) on 11 Sep 2026, data/FIN42350_price_history_2026-09-24.xlsx sheet ESTR_daily (ECB EST.B.EU000A2X2A25.WT); same observation as the risk-free rate"
+
+[hedge_r_usd]
+# USD short rate in the same adjustment.
+value = 0.0362
+source = "SOFR 3.62% p.a. (ACT/360) on 11 Sep 2026, same date as the EUR rate; Federal Reserve Bank of New York, https://markets.newyorkfed.org/api/rates/secured/sofr/search.json?startDate=2026-09-08&endDate=2026-09-15 (FRED series SOFR agrees), retrieved 26 Sep 2026"
+
+[market]
+# CAPM market proxy, used only for betas. "M01" = MSCI ACWI (EUR, net) from the price history
+# workbook, or the Bloomberg ticker heading a column of data/FIN42350_market_<date>.xlsx
+# (see data/README.md), e.g. "SXW1R Index" for STOXX Global 1800 net return in EUR.
+value = "TW1R Index"
+source = "STOXX Global Total Market Net Return EUR (Bloomberg TW1R Index, PX_LAST, weekdays, previous value on holidays), Bloomberg Terminal, UCD Smurfit Data Room, pulled 1 Oct 2026: data/FIN42350_market_2026-10-01.xlsx sheet Daily. Group decision 1 Oct 2026: one STOXX index as the market for every stock, the Total Market version because it includes emerging markets (China, Taiwan, Korea, Poland)"
+
+[initial_weights]
+# Source for the per-asset weights in initial_weights.csv (same folder).
+source = "Group decision, 26 Sep 2026: the notes' initial split 80% stocks, 13% bonds, 4% cash, 3% gold, equal weights within the 30 stocks and within the 3 bond funds"
+
+# The sections below are prefilled from the specification; they are not group choices.
+
+[constraints]
+source = "docs/FIN42350_notes.tex (snapshot 26 Sep 2026): Asset allocation (optimiser ranges) and Weight constraints"
+equity = [0.75, 0.85]
+bond = [0.10, 0.20]
+cash = [0.02, 0.05]
+gold = [0.0, 0.05]
+stock = [0.01, 0.10]
+bond_fund = [0.02, 0.15]
+sector_of_equity = [0.10, 0.30]
+region_of_equity = [0.20, 0.45]
+
+[universe]
+source = "data/FIN42350_asset_selection_2026-09-24.xlsx (the 30 picks) and docs/FIN42350_notes.tex (the five primary non-equity funds)"
+series = [
+    "P01", "P02", "P03", "P04", "P05", "P06", "P07", "P08", "P09", "P10",
+    "P11", "P12", "P13", "P14", "P15", "P16", "P17", "P18", "P19", "P20",
+    "P21", "P22", "P23", "P24", "P25", "P26", "P27", "P28", "P29", "P30",
+    "N01", "N03", "N05", "N07", "N09",
+]
+
+[portfolio]
+source = "docs/FIN42350 Group Project.pdf: the client has EUR 1 million to invest"
+value_eur = 1000000
